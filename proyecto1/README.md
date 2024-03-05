@@ -10,22 +10,25 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 
 ### Indice
 
-
+* [Documentación](#documentacion)
+    * [Topologia](#topologia)
+* [Conexión de SWITCHS](#conexion-switchs)
+    * [Centro Administrativo](#centro-administrativo)
 
 ### 🎁 Otros
 
 * [Enunciado]([Redes1]Proyecto1.pdf)
 * Comandos
 
-## 📖 Documentacion
+## 📖 Documentacion <div id='documentacion'></div>
 
-### 🔎 Topologia
+### 🔎 Topologia <div id="topologia"></div>
 
 ![alt text](image.png)
 
-### 🌐 Conexión de SWITCHS
+### 🌐 Conexión de SWITCHS <div id="conexion-switchs"></div>
 
-#### Centro Administrativo
+#### Centro Administrativo <div id="centro-administrativo"></div>
 
 | Origen         | Destino | Puerto Origen | Puerto Destino |
 | -------------- | ------- | ------------- | -------------- |
@@ -79,19 +82,19 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 
 | Dispositivo         | VLAN |  IPv4 |
 | -------------- | ------- |  ------- |
-| S_CONTABILIDAD  | 111  |  192.168.111.10      |
-| CONTABILIDAD_1  | 111 |  192.168.111.11      |
-| CONTABILIDAD2  | 111 |  192.168.111.12      |
-| SECRETARIA  | 211 |  192.168.211.10      |
-| SECRETARIA1  | 211 |  192.168.211.11      |
-| SECRETARIA2  | 211 |  192.168.211.12      |
-| S_RRHH  | 311 |  192.168.311.10      |
-| RRHH  | 311 |  192.168.311.11      |
-| RRHH1  | 311 |  192.168.311.12      |
-| RRHH2  | 311 |  192.168.311.13      |
-| S_IT  | 411 |  192.168.411.10      |
-| IT_1  | 411 |  192.168.411.11      |
-| IT_2  | 411 |  192.168.411.12      |
+| S_CONTABILIDAD  | 19  |  192.168.19.10      |
+| CONTABILIDAD_1  | 19 |  192.168.19.11      |
+| CONTABILIDAD2  | 19 |  192.168.19.12      |
+| SECRETARIA  | 29 |  192.168.29.10      |
+| SECRETARIA1  | 29 |  192.168.29.11      |
+| SECRETARIA2  | 29 |  192.168.29.12      |
+| S_RRHH  | 39 |  192.168.39.10      |
+| RRHH  | 39 |  192.168.39.11      |
+| RRHH1  | 39 |  192.168.39.12      |
+| RRHH2  | 39 |  192.168.39.13      |
+| S_IT  | 49 |  192.168.49.10      |
+| IT_1  | 49 |  192.168.49.11      |
+| IT_2  | 49 |  192.168.49.12      |
 
 ### 🔩 Configuración Centro Administrativo
 
@@ -130,7 +133,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     ```console
     int f0/1
     switchport mode access
-    switchport access vlan 211
+    switchport access vlan 29
     do w
     ```
 
@@ -169,7 +172,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     ```console
     int f0/1
     switchport mode access
-    switchport access vlan 111
+    switchport access vlan 19
     do w
     ```
 
@@ -208,7 +211,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     ```console
     int f0/1
     switchport mode access
-    switchport access vlan 311
+    switchport access vlan 39
     do w
     ```
 
@@ -247,7 +250,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     ```console
     int f0/1
     switchport mode access
-    switchport access vlan 411
+    switchport access vlan 49
     do w
     ```
 
@@ -402,7 +405,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     ```console
     int f0/2
     switchport mode access
-    switchport access vlan 411
+    switchport access vlan 49
     do w
     ```
 
@@ -441,14 +444,14 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     ```console
     int f0/3
     switchport mode access
-    switchport access vlan 111
+    switchport access vlan 19
     do w
     ```
 
     ```console
     int f0/2
     switchport mode access
-    switchport access vlan 311
+    switchport access vlan 39
     do w
     ```
 
@@ -625,7 +628,6 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     interface range fa0/1-5
     switchport trunk encapsulation dot1q
     switchport mode trunk
-    # switchport trunk allowed vlan 111, 211, 311, 411, 1002-1005
     exit
     do w
     ```
@@ -633,13 +635,13 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 * Creación de VLANs
 
     ```console
-    vlan 111
+    vlan 19
     name CONTABILIDAD
-    vlan 211
+    vlan 29
     name SECRETARIA
-    vlan 311
+    vlan 39
     name RRHH
-    vlan 411
+    vlan 49
     name IT
     exit
     do w
@@ -659,11 +661,15 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 
     ```console
     spanning-tree vlan 1 root primary
-    spanning-tree vlan 111 root primary
-    spanning-tree vlan 211 root primary
-    spanning-tree vlan 311 root primary
-    spanning-tree vlan 411 root primary
+    spanning-tree vlan 19 root primary
+    spanning-tree vlan 29 root primary
+    spanning-tree vlan 39 root primary
+    spanning-tree vlan 49 root primary
     ```
+
+### 🔩 Configuración Area de Trabajo
+
+[AQUI]
 
 **Extras**
 
@@ -678,5 +684,5 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 * En el caso que una ip se comunique con otra estando en diferentes vlans, se utiliza el siguiente comando:
 
     ```console
-    access-list [ID_CUALQUIERA] deny IP [IP_DISPOSITIVO_1] 0.0.0.255 [IP_DISPOSITIVO_2] 0.0.0.255
+    access-list [ID_CUALQUIERA] deny ip [IP_DISPOSITIVO_1] 0.0.0.255 [IP_DISPOSITIVO_2] 0.0.0.255
     ```
