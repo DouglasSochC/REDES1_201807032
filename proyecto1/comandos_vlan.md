@@ -22,17 +22,17 @@ configure terminal
     switchport mode trunk
     ```
 
-- cambiando la vlan nativa 
+* Cambiando la vlan nativa 
     ```console
     switchport trunk native vlan 99
     ```
  
-- restringiendo las vlan que se pasarán en modo troncal
+* Restringiendo las vlan que se pasarán en modo troncal
     ```console
     switchport trunk allowed vlan 10,20,99,1002-1005
     ```
 
-- configurando el modo acceso
+* configurando el modo acceso
 
     ```console
     interface f0/1
@@ -44,7 +44,7 @@ configure terminal
     switchport access vlan 20
     ```
 
-- guardando la configuracion
+* guardando la configuracion
     ```console
     do write
     end

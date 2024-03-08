@@ -12,19 +12,47 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 
 * [Documentación](#documentacion)
     * [Topologia](#topologia)
-* [Conexión de SWITCHS](#conexion-switchs)
-    * [Centro Administrativo](#centro-administrativo)
+    * [Conexión de SWITCHS](#conexion-switchs)
+        * [Centro Administrativo](#centro-administrativo)
+        * [Area de Trabajo](#centro-administrativo)
+        * [Area de Trabajo ↔️ Backbone](#area-trabajo-backbone)
+        * [Centro Administrativo ↔️ Backbone](#centro-administrativo-backbone)
+    * [Asignación de IPs](#asignacion-ips)
+    * [Configuración Centro Administrativo](#configuracion-centro-administrativo)
+        * [S3 (Cliente)](#s3)
+        * [S6 (Cliente)](#s6)
+        * [S5 (Cliente)](#s5)
+        * [S4 (Cliente)](#s4)
+        * [SW7 (Cliente)](#sw7)
+        * [SW8 (Cliente)](#sw8)
+        * [SW10 (Cliente)](#sw10)
+        * [S9 (Transparente)](#sw9)
+    * [Configuración Backbone](#configuracion-backbone)
+        * [S1 (Cliente)](#s1)
+        * [S2 (Cliente)](#s2)
+        * [SW2 (Cliente)](#sw2)
+        * [SW3 (Cliente)](#sw3)
+        * [SW4 (Cliente)](#sw4)
+        * [SW5 (Cliente)](#sw5)
+        * [SW6 (Cliente)](#sw6)
+        * [SW7 (Servidor)](#sw7)
+    * [Configuración Area de Trabajo](#configuracion-area-trabajo)
+        * [S7 (Cliente)](#s7)
+        * [S8 (Cliente)](#s8)
+        * [SW11 (Cliente)](#sw11)
+        * [SW12 (Cliente)](#sw12)
+        * [SW13 (Cliente)](#sw13)
+    * [Ping Entre Hosts](#ping-hosts)
 
 ### 🎁 Otros
 
 * [Enunciado]([Redes1]Proyecto1.pdf)
-* Comandos
 
 ## 📖 Documentacion <div id='documentacion'></div>
 
 ### 🔎 Topologia <div id="topologia"></div>
 
-![alt text](image.png)
+![alt text](image-3.png)
 
 ### 🌐 Conexión de SWITCHS <div id="conexion-switchs"></div>
 
@@ -46,7 +74,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 | SW10           | SW8      | f0/3            | f0/3           |
 | SW10           | SW9      | f0/4            | f0/4           |
 
-#### Area de Trabajo
+#### Area de Trabajo <div id="area-trabajo"></div>
 
 | Origen         | Destino | Puerto Origen | Puerto Destino |
 | -------------- | ------- | ------------- | -------------- |
@@ -62,7 +90,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 | SW11  | SW13      | f0/1            | f0/3           |
 | SW11  | SW12      | f0/2            | f0/3           |
 
-#### Area de Trabajo ↔️ Backbone
+#### Area de Trabajo ↔️ Backbone <div id="area-trabajo-backbone"></div>
 
 | Origen         | Destino | Puerto Origen | Puerto Destino |
 | -------------- | ------- | ------------- | -------------- |
@@ -70,7 +98,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 | SW12  | SW2      | f0/4            | f0/6           |
 | SW13  | SW2      | f0/4            | f0/5           |
 
-#### Centro Administrativo ↔️ Backbone
+#### Centro Administrativo ↔️ Backbone <div id="centro-administrativo-backbone"></div>
 
 | Origen         | Destino | Puerto Origen | Puerto Destino |
 | -------------- | ------- | ------------- | -------------- |
@@ -78,7 +106,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 | SW3  | SW7      | f0/4            | f0/6           |
 | SW4  | SW7      | f0/4            | f0/5           |
 
-### 🔢 Asignación de IPs
+### 🔢 Asignación de IPs <div id="asignacion-ips"></div>
 
 | Dispositivo         | VLAN |  IPv4 |
 | -------------- | ------- |  ------- |
@@ -96,9 +124,9 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 | IT_1  | 49 |  192.168.49.11      |
 | IT_2  | 49 |  192.168.49.12      |
 
-### 🔩 Configuración Centro Administrativo
+### 🔩 Configuración Centro Administrativo <div id="configuracion-centro-administrativo"></div>
 
-#### Para el S3 (Cliente)
+#### Para el S3 (Cliente) <div id="s3"></div>
 
 * Configuración inicial
 
@@ -137,7 +165,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el S6 (Cliente)
+#### Para el S6 (Cliente) <div id="s6"></div>
 
 * Configuración inicial
 
@@ -176,7 +204,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el S5 (Cliente)
+#### Para el S5 (Cliente) <div id="s5"></div>
 
 * Configuración inicial
 
@@ -215,7 +243,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el S4 (Cliente)
+#### Para el S4 (Cliente) <div id="s4"></div>
 
 * Configuración inicial
 
@@ -254,7 +282,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el SW7 (Cliente)
+#### Para el SW7 (Cliente) <div id="sw7"></div>
 
 * Configuración inicial
 
@@ -285,7 +313,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el SW8 (Cliente)
+#### Para el SW8 (Cliente) <div id="sw8"></div>
 
 * Configuración inicial
 
@@ -316,7 +344,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el SW10 (Cliente)
+#### Para el SW10 (Cliente) <div id="sw10"></div>
 
 * Configuración inicial
 
@@ -347,7 +375,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el SW9 (Transparente)
+#### Para el SW9 (Transparente) <div id="sw9"></div>
 
 * Configuración inicial
 
@@ -368,9 +396,9 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-### 🔩 Configuración Backbone
+### 🔩 Configuración Backbone <div id="configuracion-backbone"></div>
 
-#### Para el S1 (Cliente)
+#### Para el S1 (Cliente) <div id="s1"></div>
 
 * Configuración inicial
 
@@ -409,7 +437,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el S2 (Cliente)
+#### Para el S2 (Cliente) <div id="s2"></div>
 
 * Configuración inicial
 
@@ -455,7 +483,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el SW2 (Cliente)
+#### Para el SW2 (Cliente) <div id="sw2"></div>
 
 * Configuración inicial
 
@@ -486,7 +514,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el SW3 (Cliente)
+#### Para el SW3 (Cliente) <div id="sw3"></div>
 
 * Configuración inicial
 
@@ -517,7 +545,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el SW4 (Cliente)
+#### Para el SW4 (Cliente) <div id="sw4"></div>
 
 * Configuración inicial
 
@@ -548,7 +576,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el SW5 (Cliente)
+#### Para el SW5 (Cliente) <div id="sw5"></div>
 
 * Configuración inicial
 
@@ -579,7 +607,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el SW6 (Cliente)
+#### Para el SW6 (Cliente) <div id="sw6"></div>
 
 * Configuración inicial
 
@@ -610,7 +638,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el SW7 (Servidor)
+#### Para el SW7 (Servidor) <div id="sw7"></div>
 
 * Configuración inicial
 
@@ -667,9 +695,199 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     spanning-tree vlan 49 root primary
     ```
 
-### 🔩 Configuración Area de Trabajo
+### 🔩 Configuración Area de Trabajo <div id="configuracion-area-trabajo"></div>
 
-[AQUI]
+#### Para el S7 (Cliente) <div id="s7"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname S7
+    do w
+    ```
+
+* Configuración del modo truncal
+
+    ```console
+    int f0/1
+    switchport mode trunk
+    exit
+    do w
+    ```
+
+* Configuración del protocolo
+
+    ```console
+    vtp mode client
+    vtp domain P32
+    vtp password usac
+    do w
+    ```
+
+* Configuración del modo de acceso
+
+    ```console
+    int f0/2
+    switchport mode access
+    switchport access vlan 29
+    do w
+
+    int f0/3
+    switchport mode access
+    switchport access vlan 49
+    do w
+
+    int f0/4
+    switchport mode access
+    switchport access vlan 19
+    do w
+    ```
+
+#### Para el S8 (Cliente) <div id="s8"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname S8
+    do w
+    ```
+
+* Configuración del modo truncal
+
+    ```console
+    int f0/1
+    switchport mode trunk
+    exit
+    do w
+    ```
+
+* Configuración del protocolo
+
+    ```console
+    vtp mode client
+    vtp domain P32
+    vtp password usac
+    do w
+    ```
+
+* Configuración del modo de acceso
+
+    ```console
+    int f0/2
+    switchport mode access
+    switchport access vlan 29
+    do w
+
+    int f0/3
+    switchport mode access
+    switchport access vlan 39 
+    do w
+
+    int f0/4
+    switchport mode access
+    switchport access vlan 39 
+    do w
+    ```
+
+#### Para el SW11 (Cliente) <div id="sw11"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname SW11
+    do w
+    ```
+
+* Configuración del modo truncal
+
+    ```console
+    interface range fa0/1-3
+    switchport trunk encapsulation dot1q
+    switchport mode trunk
+    exit
+    do w
+    ```
+
+* Configuración del protocolo
+
+    ```console
+    vtp mode client
+    vtp domain P32
+    vtp password usac
+    do w
+    ```
+
+
+#### Para el SW12 (Cliente) <div id="sw12"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname SW12
+    do w
+    ```
+
+* Configuración del modo truncal
+
+    ```console
+    interface range fa0/1-4
+    switchport trunk encapsulation dot1q
+    switchport mode trunk
+    exit
+    do w
+    ```
+
+* Configuración del protocolo
+
+    ```console
+    vtp mode client
+    vtp domain P32
+    vtp password usac
+    do w
+    ```
+
+#### Para el SW13 (Cliente) <div id="sw13"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname SW13
+    do w
+    ```
+
+* Configuración del modo truncal
+
+    ```console
+    interface range fa0/1-4
+    switchport trunk encapsulation dot1q
+    switchport mode trunk
+    exit
+    do w
+    ```
+
+* Configuración del protocolo
+
+    ```console
+    vtp mode client
+    vtp domain P32
+    vtp password usac
+    do w
+    ```
 
 **Extras**
 
@@ -686,3 +904,14 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     ```console
     access-list [ID_CUALQUIERA] deny ip [IP_DISPOSITIVO_1] 0.0.0.255 [IP_DISPOSITIVO_2] 0.0.0.255
     ```
+
+
+### 🔩 Ping Entre Hosts
+
+#### Ping del Host 192.168.39.11 (RRHH) al Host 192.168.39.13 (RRHH2)
+
+![alt text](image-1.png)
+
+#### Ping del Host 192.168.19.10 (S_CONTABILIDAD) al Host 192.168.19.12 (CONTABILIDAD2)
+
+![alt text](image-2.png)
