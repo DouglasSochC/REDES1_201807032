@@ -11,6 +11,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 ### Indice
 
 * [Documentación](#documentacion)
+    * [Presupuesto](Presupuesto.pdf)
     * [Topologia](#topologia)
     * [Conexión de SWITCHS](#conexion-switchs)
         * [Centro Administrativo](#centro-administrativo)
