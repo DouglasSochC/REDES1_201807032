@@ -44,22 +44,22 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 
 | Dispositivo       | Interfaz | Dirección IP | Mascara de subred |
 |-------------------|----------|--------------|-------------------|
-| R1                | s1/0     | 10.0.0.1     | 255.255.255.252   |
-| R1                | e0/0     | 122.168.1.2  | 255.255.255.248   |
-| R1                | e0/1     | 122.168.2.2  | 255.255.255.248   |
-| R2                | e0/0     | 122.168.1.1  | 255.255.255.248   |
-| R2                | e0/1     | 122.168.0.2  | 255.255.255.0     |
-| R3                | e0/0     | 122.168.2.1  | 255.255.255.248   |
-| R3                | e0/1     | 122.168.0.3  | 255.255.255.0     |
+| R1                | s0/0     | 10.0.0.1     | 255.255.255.252   |
+| R1                | f0/0     | 122.168.1.2  | 255.255.255.248   |
+| R1                | f0/1     | 122.168.2.2  | 255.255.255.248   |
+| R2                | f0/0     | 122.168.1.1  | 255.255.255.248   |
+| R2                | f0/1     | 122.168.0.2  | 255.255.255.0     |
+| R3                | f0/0     | 122.168.2.1  | 255.255.255.248   |
+| R3                | f0/1     | 122.168.0.3  | 255.255.255.0     |
 | R2 - R3 (Virtual) |          | 122.168.0.1  | 255.255.255.0     |
 | VPC11             | eth0     | 122.168.0.4  | 255.255.255.0     |
-| R4                | s1/0     | 10.0.0.2     | 255.255.255.252   |
-| R4                | e0/0     | 122.178.1.1  | 255.255.255.248   |
-| R4                | e0/1     | 122.178.2.1  | 255.255.255.248   |
-| R5                | e0/0     | 122.178.1.2  | 255.255.255.248   |
-| R5                | e0/1     | 122.178.0.2  | 255.255.255.0     |
-| R6                | e0/0     | 122.178.2.2  | 255.255.255.248   |
-| R6                | e0/1     | 122.178.0.3  | 255.255.255.0     |
+| R4                | s0/0     | 10.0.0.2     | 255.255.255.252   |
+| R4                | f0/0     | 122.178.1.1  | 255.255.255.248   |
+| R4                | f0/1     | 122.178.2.1  | 255.255.255.248   |
+| R5                | f0/0     | 122.178.1.2  | 255.255.255.248   |
+| R5                | f0/1     | 122.178.0.2  | 255.255.255.0     |
+| R6                | f0/0     | 122.178.2.2  | 255.255.255.248   |
+| R6                | f0/1     | 122.178.0.3  | 255.255.255.0     |
 | R5 - R6 (Virtual) |          | 122.178.0.1  | 255.255.255.0     |
 | VPC12             | eth0     | 122.178.0.4  | 255.255.255.0     |
 
@@ -80,16 +80,17 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 * Configuración de la IP y mascara en cada puerto correspondiente
 
     ```python
-    interface s1/0
+    interface s0/0
     ip address 10.0.0.1 255.255.255.252
     no shutdown
-    interface e0/0
+    interface f0/0
     ip address 122.168.1.2 255.255.255.248
     no shutdown
-    interface e0/1
+    interface f0/1
     ip address 122.168.2.2 255.255.255.248
     no shutdown
     do w
+    exit
     ```
 
 * Configuración de las rutas estaticas
@@ -121,16 +122,17 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 * Configuración de la IP y mascara en cada puerto correspondiente
 
     ```python
-    interface s1/0
+    interface s0/0
     ip address 10.0.0.2 255.255.255.252
     no shutdown
-    interface e0/0
+    interface f0/0
     ip address 122.178.1.1 255.255.255.248
     no shutdown
-    interface e0/1
+    interface f0/1
     ip address 122.178.2.1 255.255.255.248
     no shutdown
     do w
+    exit
     ```
 
 * Configuración de las rutas estaticas
@@ -162,13 +164,23 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 * Configuración de la IP y mascara en cada puerto correspondiente
 
     ```python
-    interface e0/0
+    interface f0/0
     ip address 122.168.1.1 255.255.255.248
     no shutdown
-    interface e0/1
+    interface f0/1
     ip address 122.168.0.2 255.255.255.0
     no shutdown
     do w
+    ```
+
+* Configuración del protocolo HSRP
+
+    ```python
+    standby 10 ip 122.168.0.1
+    standby 10 priority 150
+    standby 10 preempt
+    do w
+    exit
     ```
 
 * Configuración de las rutas estaticas
@@ -181,16 +193,6 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
     ip route 122.178.0.0 255.255.255.0 122.168.1.2 # Para el verde
     do w
     ```
-
-<!-- * Configuración de la redundancia
-
-    ```python
-    glbp 1 ip 122.168.0.1
-    glbp 1 preempt
-    dlbp 1 priority 100
-    glbp 1 load-balancing round-robin
-    do w
-    ``` -->
 
 #### Para el R3 <div id="r3"></div>
 
@@ -207,13 +209,21 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 * Configuración de la IP y mascara en cada puerto correspondiente
 
     ```python
-    interface e0/0
+    interface f0/0
     ip address 122.168.2.1 255.255.255.248
     no shutdown
-    interface e0/1
+    interface f0/1
     ip address 122.168.0.3 255.255.255.0
     no shutdown
     do w
+    ```
+
+* Configuración del protocolo HSRP
+
+    ```python
+    standby 10 ip 122.168.0.1
+    do w
+    exit
     ```
 
 * Configuración de las rutas estaticas
@@ -226,14 +236,6 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
     ip route 122.178.0.0 255.255.255.0 122.168.2.2 # Para el verde
     do w
     ```
-
-<!-- * Configuración de la redundancia
-
-    ```python
-    glbp 1 ip 122.168.0.1
-    glbp 1 load-balancing round-robin
-    do w
-    ``` -->
 
 #### Para el R5 <div id="r5"></div>
 
@@ -250,13 +252,23 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 * Configuración de la IP y mascara en cada puerto correspondiente
 
     ```python
-    interface e0/0
+    interface f0/0
     ip address 122.178.1.2 255.255.255.248
     no shutdown
-    interface e0/1
+    interface f0/1
     ip address 122.178.0.2 255.255.255.0
     no shutdown
     do w
+    ```
+
+* Configuración del protocolo HSRP
+
+    ```python
+    standby 20 ip 122.178.0.1
+    standby 20 priority 110
+    standby 20 preempt
+    do w
+    exit
     ```
 
 * Configuración de las rutas estaticas
@@ -269,16 +281,6 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
     ip route 122.168.0.0 255.255.255.0 122.178.1.1 # Para el rojo
     do w
     ```
-
-<!-- * Configuración Standby
-
-    ```python
-    standby version 2
-    standby 2 ip 122.178.0.1
-    standby 2 priority 110
-    standby 2 preempt
-    do w
-    ``` -->
 
 #### Para el R6 <div id="r6"></div>
 
@@ -295,13 +297,21 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 * Configuración de la IP y mascara en cada puerto correspondiente
 
     ```python
-    interface e0/0
+    interface f0/0
     ip address 122.178.2.2 255.255.255.248
     no shutdown
-    interface e0/1
+    interface f0/1
     ip address 122.178.0.3 255.255.255.0
     no shutdown
     do w
+    ```
+
+* Configuración del protocolo HSRP
+
+    ```python
+    standby 20 ip 122.178.0.1
+    do w
+    exit
     ```
 
 * Configuración de las rutas estaticas
@@ -314,14 +324,6 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
     ip route 122.168.0.0 255.255.255.0 122.178.2.1 # Para el rojo
     do w
     ```
-
-<!-- * Configuración Standby
-
-    ```python
-    standby version 2
-    standby 2 ip 122.178.0.1
-    do w
-    ``` -->
 
 ### 🔩 Configuración de Switches <div id="configuracion-switches"></div>
 
@@ -340,7 +342,7 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 * Configuración del protocolo PAGP
 
     ```python
-    interface range e0/1-2
+    interface range f0/1-2
     channel-group 1 mode desirable
     do w
     ```
@@ -360,7 +362,7 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 * Configuración del protocolo PAGP
 
     ```python
-    interface range e0/1-2
+    interface range f0/1-2
     channel-group 1 mode desirable
     do w
     ```
@@ -380,7 +382,7 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 * Configuración del protocolo LACP
 
     ```python
-    interface range e0/1-2
+    interface range f0/1-2
     channel-group 2 mode active
     do w
     ```
@@ -400,7 +402,7 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 * Configuración del protocolo LACP
 
     ```python
-    interface range e0/1-2
+    interface range f0/1-2
     channel-group 2 mode active
     do w
     ```
@@ -409,11 +411,11 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 
 #### Para el VPC0
 
-IMAGEN
+![alt text](image.png)
 
 #### Para el VPC1
 
-IMAGEN
+![alt text](image-1.png)
 
 ### 📡 Ping Entre Hosts
 
