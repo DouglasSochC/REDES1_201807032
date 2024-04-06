@@ -28,6 +28,12 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
     * [Configuración de VPCs](#configuracion-vpcs)
         * [VPC0](#vpc0)
         * [VPC1](#vpc1)
+    * [Visualización de configuraciones realizadas](#visualizar-configuraciones)
+        * [R1](#vc-r1)
+        * [R2](#vc-r2)
+        * [R5](#vc-r5)
+        * [SW7](#vc-sw7)
+        * [VPC1](#vc-vpc1)
     * [Ping Entre Hosts](#ping-hosts)
 
 ### 🎁 Otros
@@ -38,7 +44,7 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
 
 ### 🔎 Topologia <div id="topologia"></div>
 
-![alt text](imagenes/image.png)
+![alt text](imagenes/image1.png)
 
 ### 🔢 Asignación de IPs y Mascaras <div id="asignacion-ips-mascaras"></div>
 
@@ -407,17 +413,40 @@ _Este es una practica universitaria del curso de Redes de Computadoras 1._
     do w
     ```
 
+### 📜 Visualización de configuraciones realizadas <div id="visualizar-configuraciones"></div>
+
+#### R1 <div id="vc-r1"></div>
+
+![alt text](imagenes/image5.png)
+
+#### R2 <div id="vc-r2"></div>
+
+![alt text](imagenes/image6.png)
+
+#### R5 <div id="vc-r5"></div>
+
+![alt text](imagenes/image7.png)
+
+#### SW1 <div id="vc-sw1"></div>
+
+![alt text](imagenes/image8.png)
+
+#### VPC1 <div id="vc-vpc1"></div>
+
+![alt text](imagenes/image3.png)
+
 ### 🔩 Configuración de VPCs <div id="configuracion-vpcs"></div>
 
-#### Para el VPC0
+#### Para el VPC0 <div id="vpc0"></div>
 
-![alt text](image.png)
+![alt text](imagenes/image2.png)
 
-#### Para el VPC1
+#### Para el VPC1 <div id="vpc1"></div>
 
-![alt text](image-1.png)
+![alt text](imagenes/image3.png)
 
-### 📡 Ping Entre Hosts
+### 📡 Ping Entre Hosts <div id="ping-hosts"></div>
 
-#### Ping del Host al Host
+#### Ping del Host VPC0 (122.168.0.4) al Host VPC1 (122.178.0.4)
 
+![alt text](imagenes/image4.png)
