@@ -129,7 +129,7 @@ Donde:
 
 > Nota: Para la próxima VLAN, al asignar la ID de Red, es importante definirla en relación con la secuencia que se sigue en la asignación del broadcast.
 
-La tabla obtenida con respecto a las respectivas asignaciones son las siguientes:
+La tabla obtenida con respecto a las asignaciones son las siguientes:
 
 |VLAN|ID VLAN|Equipos|Mascara|Wildcard|ID Red|Primera IP|Ultima IP|IP Broadcast|
 |:----|:----|:----|:----|:----|:----|:----|:----|:----|
@@ -142,6 +142,9 @@ La tabla obtenida con respecto a las respectivas asignaciones son las siguientes
 
 #### Para la sede de Jutiapa
 
+* ID Red = 192.168.XX.0/24
+* XX = 29
+
 |VLAN|ID VLAN|Equipos|Mascara|Wildcard|ID Red|Primera IP|Ultima IP|IP Broadcast|
 |:----|:----|:----|:----|:----|:----|:----|:----|:----|
 |Ventas|32|25|255.255.255.224|0.0.0.31|192.168.29.0|192.168.29.1|192.168.29.30|192.168.29.31|
@@ -151,6 +154,57 @@ La tabla obtenida con respecto a las respectivas asignaciones son las siguientes
 
 #### Para la sede de Escuintla
 
+* ID Red = 192.148.XX.0/24
+* XX = 29
+
+|VLAN|ID VLAN|Equipos|Mascara|Wildcard|ID Red|Primera IP|Ultima IP|IP Broadcast|
+|:----|:----|:----|:----|:----|:----|:----|:----|:----|
+|Ventas|3Y|20|255.255.255.224|0.0.0.31|192.148.29.0|192.148.29.1|192.148.29.30|192.148.29.31|
+|RRHH|1Y|5|255.255.255.248|0.0.0.7|192.148.29.32|192.148.29.33|192.148.29.38|192.148.29.39|
+
+
 #### Para la sede de Quiche
 
 #### Para la sede de Peten
+
+<!-- ### 🔩 Configuración de la Sede Jutiapa<div id="configuracion-jutiapa"></div>
+
+#### Para el SW3 (Cliente) <div id="sw3"></div>
+
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname SW3
+    do w
+    ```
+
+* Configuración del modo truncal
+
+    ```console
+    int f0/2
+    switchport mode trunk
+    exit
+    do w
+    ```
+
+* Configuración del protocolo
+
+    ```console
+    vtp mode client
+    vtp domain P32
+    vtp password usac
+    do w
+    ```
+
+* Configuración del modo de acceso
+
+    ```console
+    int range f0/1-3
+    switchport mode access
+    switchport access vlan 29
+    do w
+    ``` -->
