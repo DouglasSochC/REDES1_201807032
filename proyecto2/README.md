@@ -12,6 +12,11 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 
 * [Documentación](#documentacion)
     * [Topologia](#topologia)
+    * [Calculo del VLSM](#calculo-vlsm)
+    * [VLSM Obtenidos](#vlsm-obtenidos)
+    * [Configuración de la Sede Jutiapa](#configuracion-jutiapa)
+        * [SW2](#sw2)
+        * [SW3](#sw3)
 
 ## 🎁 Otros
 
@@ -56,7 +61,7 @@ A modo de ejemplo, se utilizará la VLAN 'Ventas'.
     * Cuando $n=4$, resulta en $2^4 = 16$ equipos.
     * Cuando $n=5$, resulta en $2^5 = 32$ equipos.
     * Cuando $n=6$, resulta en $2^6 = 64$ equipos.
-    
+
     Después de obtener los resultados, determinamos que la opción que mejor se ajusta a la cantidad de equipos requeridos es cuando $n=5$.
 
     **N** representa la cantidad de bits que se utilizan para identificar la _Parte de Host_.
@@ -64,7 +69,7 @@ A modo de ejemplo, se utilizará la VLAN 'Ventas'.
 2. **Determinación de la cantidad de bits para la _Parte de Red_**
 
     Una vez calculado **N**, procedemos a determinar la cantidad de bits utilizados para la _Parte de Red_. Este cálculo se realiza de la siguiente manera:
-    
+
     $32 - 5 = 27$ bits
 
     Por lo tanto, se concluye que la cantidad de bits para la _Parte de Red_ es de 27 bits, lo que se expresa en notación CIDR como /27.
@@ -124,7 +129,7 @@ Donde:
 4. **Asignación del Broadcast**
 
     La dirección de broadcast es la última dirección IP asignable. Esta se determina por la cantidad de Host que hay disponibles
-    
+
     > Nota: Una forma de visualizar la cantidad de Host que hay, es por medio del wildcard
 
     En este caso se define: 192.168.29.31
@@ -188,9 +193,9 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 | Informatica | 4Y      | 15      | 255.255.255.224 | 0.0.0.31 | 192.158.29.32 | 192.158.29.33 | 192.158.29.62 | 192.158.29.63 |
 | RRHH        | 1Y      | 10      | 255.255.255.240 | 0.0.0.15 | 192.158.29.64 | 192.158.29.65 | 192.158.29.78 | 192.158.29.79 |
 
-<!-- ### 🔩 Configuración de la Sede Jutiapa<div id="configuracion-jutiapa"></div>
+### 🔩 Configuración de la Sede Jutiapa<div id="configuracion-jutiapa"></div>
 
-#### Para el SW3 (Cliente) <div id="sw3"></div>
+#### Para el SW2 <div id="sw2"></div>
 
 
 * Configuración inicial
@@ -199,14 +204,15 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
     enable
     conf t
     no ip domain-lookup
-    hostname SW3
+    hostname SW2
     do w
     ```
 
 * Configuración del modo truncal
 
     ```console
-    int f0/2
+    int range f0/4-6
+    switchport trunk encapsulation dot1q
     switchport mode trunk
     exit
     do w
@@ -223,9 +229,111 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 
 * Configuración del modo de acceso
 
+    La asignación de VLANs se dio arbitrariamente
+
+    * Para PC2
+
+        ```console
+        int f0/1
+        switchport mode access
+        switchport access vlan 12
+        do w
+        ```
+
+    * Para PC3
+
+        ```console
+        int f0/2
+        switchport mode access
+        switchport access vlan 22
+        do w
+        ```
+
+    * Para PC4
+
+        ```console
+        int f0/3
+        switchport mode access
+        switchport access vlan 32
+        exit
+        do w
+        ```
+
+* Configuracion del STP (RPVST)
+
     ```console
-    int range f0/1-3
-    switchport mode access
-    switchport access vlan 29
+    spanning-tree mode rapid-pvst
+    exit
+    ```
+
+#### Para el SW3 <div id="sw3"></div>
+
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname SW3
     do w
-    ``` -->
+    ```
+
+* Configuración del modo truncal
+
+    ```console
+    int range f0/4-6
+    switchport trunk encapsulation dot1q
+    switchport mode trunk
+    exit
+    do w
+    ```
+
+* Configuración del protocolo
+
+    ```console
+    vtp mode client
+    vtp domain P32
+    vtp password usac
+    do w
+    ```
+
+* Configuración del modo de acceso
+
+    La asignación de VLANs se dio arbitrariamente
+
+    * Para PC5
+
+        ```console
+        int f0/1
+        switchport mode access
+        switchport access vlan 42
+        do w
+        ```
+
+    * Para PC6
+
+        ```console
+        int f0/2
+        switchport mode access
+        switchport access vlan 12
+        do w
+        ```
+
+    * Para PC7
+
+        ```console
+        int f0/3
+        switchport mode access
+        switchport access vlan 22
+        exit
+        do w
+        ```
+
+* Configuracion del STP (RPVST)
+
+    ```console
+    spanning-tree mode rapid-pvst
+    exit
+    ```
+

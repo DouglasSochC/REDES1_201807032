@@ -31,12 +31,12 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     * [Configuración Backbone](#configuracion-backbone)
         * [S1 (Cliente)](#s1)
         * [S2 (Cliente)](#s2)
+        * [SW1 (Servidor)](#sw1)
         * [SW2 (Cliente)](#sw2)
         * [SW3 (Cliente)](#sw3)
         * [SW4 (Cliente)](#sw4)
         * [SW5 (Cliente)](#sw5)
         * [SW6 (Cliente)](#sw6)
-        * [SW7 (Servidor)](#sw7)
     * [Configuración Area de Trabajo](#configuracion-area-trabajo)
         * [S7 (Cliente)](#s7)
         * [S8 (Cliente)](#s8)
@@ -639,7 +639,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     do w
     ```
 
-#### Para el SW7 (Servidor) <div id="sw7"></div>
+#### Para el SW1 (Servidor) <div id="sw1"></div>
 
 * Configuración inicial
 
