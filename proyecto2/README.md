@@ -21,6 +21,8 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
 
 ### 🔎 Topologia <div id="topologia"></div>
 
+![alt text](image.png)
+
 ### 🔢 Calculo del VLSM <div id="calculo-vlsm"></div>
 
 Para ilustrar el proceso de cálculo del VLSM, se utilizará como ejemplo la sede de **Jutiapa** durante toda la explicación.
@@ -165,7 +167,26 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 
 #### Para la sede de Quiche
 
+* ID Red = 192.178.XX.0/24
+* XX = 29
+
+| VLAN         | ID VLAN | Equipos | Mascara         | Wildcard | ID Red         | Primera IP     | Ultima IP      | IP Broadcast   |
+|--------------|---------|---------|-----------------|----------|----------------|----------------|----------------|----------------|
+| Ventas       | 3Y      | 36      | 255.255.255.192 | 0.0.0.63 | 192.178.29.0   | 192.178.29.1   | 192.178.29.62  | 192.178.29.63  |
+| Informatica  | 4Y      | 21      | 255.255.255.224 | 0.0.0.31 | 192.178.29.64  | 192.178.29.65  | 192.178.29.94  | 192.178.29.95  |
+| RRHH         | 1Y      | 12      | 255.255.255.240 | 0.0.0.15 | 192.178.29.96  | 192.178.29.97  | 192.178.29.110 | 192.178.29.111 |
+| Contabilidad | 2Y      | 10      | 255.255.255.240 | 0.0.0.15 | 192.178.29.112 | 192.178.29.113 | 192.178.29.126 | 192.178.29.127 |
+
 #### Para la sede de Peten
+
+* ID Red = 192.158.XX.0/24
+* XX = 29
+
+| VLAN        | ID VLAN | Equipos | Mascara         | Wildcard | ID Red        | Primera IP    | Ultima IP     | IP Broadcast  |
+|-------------|---------|---------|-----------------|----------|---------------|---------------|---------------|---------------|
+| Ventas      | 3Y      | 30      | 255.255.255.224 | 0.0.0.31 | 192.158.29.0  | 192.158.29.1  | 192.158.29.30 | 192.158.29.31 |
+| Informatica | 4Y      | 15      | 255.255.255.224 | 0.0.0.31 | 192.158.29.32 | 192.158.29.33 | 192.158.29.62 | 192.158.29.63 |
+| RRHH        | 1Y      | 10      | 255.255.255.240 | 0.0.0.15 | 192.158.29.64 | 192.158.29.65 | 192.158.29.78 | 192.158.29.79 |
 
 <!-- ### 🔩 Configuración de la Sede Jutiapa<div id="configuracion-jutiapa"></div>
 
