@@ -17,6 +17,9 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     * [Configuración de la Sede Jutiapa](#configuracion-jutiapa)
         * [SW2](#sw2)
         * [SW3](#sw3)
+        * [ESW1](#esw1)
+        * [J1](#j1)
+        * [J2](#j2)
 
 ## 🎁 Otros
 
@@ -197,7 +200,6 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 
 #### Para el SW2 <div id="sw2"></div>
 
-
 * Configuración inicial
 
     ```console
@@ -268,7 +270,6 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 
 #### Para el SW3 <div id="sw3"></div>
 
-
 * Configuración inicial
 
     ```console
@@ -337,3 +338,153 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
     exit
     ```
 
+#### Para el ESW1 <div id="esw1"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname ESW1
+    do w
+    ```
+
+* Configuración del modo truncal
+
+    ```console
+    int range f0/1-4
+    switchport trunk encapsulation dot1q
+    switchport mode trunk
+    exit
+    do w
+    ```
+
+* Configuración del protocolo
+
+    ```console
+    vtp version 2
+    vtp mode server
+    vtp domain P32
+    vtp password usac
+    do w
+    ```
+
+* Creación de VLANs
+
+    ```console
+    vlan 12
+    name RRHH
+    vlan 22
+    name CONTABILIDAD
+    vlan 32
+    name VENTAS
+    vlan 42
+    name INFORMATICA
+    exit
+    do w
+    ```
+
+* Configuracion de las VLANs con STP
+
+    ```console
+    spanning-tree vlan 1 root primary
+    spanning-tree vlan 12 root primary
+    spanning-tree vlan 22 root primary
+    spanning-tree vlan 32 root primary
+    spanning-tree vlan 42 root primary
+    ```
+
+* Configuración de las VLANs como Switch Virtual Interface (SVI)
+
+    ```console
+    interface vlan 35
+    ip address 192.168.29.1 255.255.255.224
+    no shutdown
+    exit
+
+    interface vlan 45
+    ip address 192.168.29.33 255.255.255.240
+    no shutdown
+    exit
+
+    interface vlan 15
+    ip address 192.168.29.49 255.255.255.240
+    no shutdown
+    exit
+
+
+    interface vlan 25
+    ip address 192.168.29.65 255.255.255.248
+    no shutdown
+    exit
+    ```
+
+* Configuracion del STP (RPVST)
+
+    ```console
+    spanning-tree mode rapid-pvst
+    exit
+    ```
+
+#### Para el J1 <div id="j1"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname J1
+    do w
+    ```
+
+* Configuración HSRP
+
+    ```console
+    int fa1/0
+    standby 10 ip 192.167.29.1
+    standby 10 priority 150
+    standby 10 preempt
+    do w
+    exit
+    ```
+
+* Configuración de la IP y mascara en cada puerto correspondiente
+
+    ```console
+    interface f0/0
+    ip add 11.0.0.1 255.255.255.0
+    no shutdown
+    do w
+    ```
+
+#### Para el J2 <div id="j2"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname J2
+    do w
+    ```
+
+* Configuración HSRP
+
+    ```console
+    int fa1/0
+    standby 10 ip 192.167.29.1
+    do w
+    exit
+    ```
+
+* Configuración de la IP y mascara en cada puerto correspondiente
+
+    ```console
+    interface f0/0
+    ip add 12.0.0.1 255.255.255.0
+    no shutdown
+    do w
+    ```
