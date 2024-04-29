@@ -25,8 +25,8 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
         * [SW0](#sw0)
     * [Configuración del Core](#configuracion-core)
         * [CENTRAL](#router-central)
-        * [JUTIAPA](#router-jutiapa)
         * [ESCUINTLA](#router-escuintla)
+        * [JUTIAPA](#router-jutiapa)
 
 ## 🎁 Otros
 
@@ -658,7 +658,7 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
     do w
     ```
 
-#### Para el Router JUTIAPA <div id="router-jutiapa"></div>
+#### Para el Router ESCUINTLA <div id="router-escuintla"></div>
 
 * Configuración inicial
 
@@ -666,7 +666,7 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
     enable
     conf t
     no ip domain-lookup
-    hostname JUTIAPA
+    hostname ESCUINTLA
     do w
     ```
 
@@ -719,8 +719,8 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
     exit
     do w
     ```
-<!-- 
-#### Para el Router ESCUINTLA <div id="router-escuintla"></div>
+
+#### Para el Router JUTIAPA <div id="router-jutiapa"></div>
 
 * Configuración inicial
 
@@ -734,7 +734,37 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
 * Configuración de la IP y mascara en cada puerto correspondiente
 
-    > Los rangos entre IPs son arbitrarios
+    ```console
+    int f0/0
+    ip address 10.0.0.113 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f1/0
+    ip address 10.0.0.66 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f6/0
+    ip address 10.0.0.129 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f7/0
+    ip address 10.0.0.34 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
 
     ```console
     int f8/0
@@ -742,20 +772,3 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
     exit
     do w
     ```
-
-    ```console
-    int f0/0
-    ip address 10.0.0.2 255.255.255.240
-    no shutdown
-    exit
-    do w
-    ```
-
-    HACIA JUTIAPA
-    ```console
-    int f1/0
-    ip address 10.0.0.97 255.255.255.240
-    no shutdown
-    exit
-    do w
-    ``` -->
