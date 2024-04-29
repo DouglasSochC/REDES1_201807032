@@ -591,7 +591,7 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
 * Configuración del modo de acceso
 
-    La asignación de VLANs se dio arbitrariamente
+    > La asignación de VLANs se dio arbitrariamente
 
     * Para PC0
 
@@ -716,15 +716,6 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int f8/0
-    ip address 11.0.0.2 255.255.255.0
-    no shutdown
-    exit
-    do w
-    ```
-
-    ```console
-    int f9/0
-    ip address 12.0.0.2 255.255.255.0
     no shutdown
     exit
     do w
@@ -778,6 +769,15 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int f8/0
+    ip address 11.0.0.2 255.255.255.0
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f9/0
+    ip address 12.0.0.2 255.255.255.0
     no shutdown
     exit
     do w
