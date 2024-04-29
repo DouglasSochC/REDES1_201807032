@@ -418,7 +418,9 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int range f0/1-4
+    switchport trunk encapsulation dot1q
     switchport mode trunk
+    no shutdown
     exit
     do w
     ```
@@ -475,7 +477,6 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
     ip address 192.168.29.49 255.255.255.240
     no shutdown
     exit
-
 
     int vlan 25
     ip address 192.168.29.65 255.255.255.248
