@@ -27,6 +27,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
         * [CENTRAL](#router-central)
         * [ESCUINTLA](#router-escuintla)
         * [JUTIAPA](#router-jutiapa)
+        * [PETEN](#router-peten)
 
 ## 🎁 Otros
 
@@ -768,6 +769,52 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int f8/0
+    no shutdown
+    exit
+    do w
+    ```
+
+#### Para el Router PETEN <div id="router-peten"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname PETEN
+    do w
+    ```
+
+* Configuración de la IP y mascara en cada puerto correspondiente
+
+    ```console
+    int f0/0
+    ip address 10.0.0.114 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f1/0
+    ip address 10.0.0.145 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f6/0
+    ip address 10.0.0.82 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f7/0
+    ip address 10.0.0.50 255.255.255.240
     no shutdown
     exit
     do w
