@@ -20,6 +20,8 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
         * [ESW1](#esw1)
         * [J1](#j1)
         * [J2](#j2)
+    * [Configuración de la Sede Escuintla](#configuracion-escuintla)
+        * [SW0](#sw0)
 
 ## 🎁 Otros
 
@@ -487,4 +489,69 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
     ip add 12.0.0.1 255.255.255.0
     no shutdown
     do w
+    ```
+
+### 🔩 Configuración de la Sede Escuintla<div id="configuracion-escuintla"></div>
+
+#### Para el SW0 <div id="sw0"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname SW0
+    do w
+    ```
+
+* Configuración del modo truncal
+
+    ```console
+    int f0/1
+    switchport mode trunk
+    exit
+    do w
+    ```
+
+* Creación de VLANs
+
+    ```console
+    vlan 12
+    name RRHH
+    vlan 32
+    name VENTAS
+    exit
+    do w
+    ```
+
+* Configuración del modo de acceso
+
+    La asignación de VLANs se dio arbitrariamente
+
+    * Para PC0
+
+        ```console
+        int f0/2
+        switchport mode access
+        switchport access vlan 12
+        do w
+        exit
+        ```
+
+    * Para PC1
+
+        ```console
+        int f0/3
+        switchport mode access
+        switchport access vlan 32
+        do w
+        exit
+        ```
+
+* Configuracion del STP (RPVST)
+
+    ```console
+    spanning-tree mode rapid-pvst
+    exit
     ```
