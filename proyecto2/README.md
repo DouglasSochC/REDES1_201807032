@@ -23,7 +23,8 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     * [Configuración de la Sede Escuintla](#configuracion-escuintla)
         * [SW0](#sw0)
     * [Configuración del Core](#configuracion-core)
-        * [CENTRAL](#central)
+        * [CENTRAL](#router-central)
+        * [JUTIAPA](#router-jutiapa)
 
 ## 🎁 Otros
 
@@ -560,7 +561,7 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 
 ### 🔩 Configuración del Core<div id="configuracion-core"></div>
 
-#### Para el CENTRAL <div id="central"></div>
+#### Para el Router CENTRAL <div id="router-central"></div>
 
 * Configuración inicial
 
@@ -585,25 +586,51 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
     ```
 
     ```console
-    interface f1/0
+    interface f6/0
     ip add 10.0.0.17 255.255.255.240
     no shutdown
     exit
     do w
     ```
 
+#### Para el Router JUTIAPA <div id="router-jutiapa"></div>
+
+* Configuración inicial
+
     ```console
-    interface f2/0
-    ip add 10.0.0.33 255.255.255.240
+    enable
+    conf t
+    no ip domain-lookup
+    hostname JUTIAPA
+    do w
+    ```
+
+* Configuración de la IP y mascara en cada puerto correspondiente
+
+    > Los rangos entre IPs son arbitrarios
+
+    ```console
+    interface f8/0
+    ip add 11.0.0.2 255.255.255.0
     no shutdown
     exit
     do w
     ```
 
     ```console
-    interface f3/0
-    ip add 10.0.0.49 255.255.255.240
+    interface f9/0
+    ip add 12.0.0.2 255.255.255.0
     no shutdown
     exit
     do w
     ```
+
+    ```console
+    interface f7/0
+    ip add 10.0.0.18 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+#### Para el Router JUTIAPA <div id="router-jutiapa"></div>
