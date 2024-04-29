@@ -819,3 +819,49 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
     exit
     do w
     ```
+
+#### Para el Router QUICHE <div id="router-quiche"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname QUICHE
+    do w
+    ```
+
+* Configuración de la IP y mascara en cada puerto correspondiente
+
+    ```console
+    int f0/0
+    ip address 10.0.0.146 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f1/0
+    ip address 10.0.0.50 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f6/0
+    ip address 10.0.0.130 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f7/0
+    ip address 10.0.0.198 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
