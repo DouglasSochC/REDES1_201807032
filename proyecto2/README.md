@@ -22,6 +22,8 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
         * [J2](#j2)
     * [Configuración de la Sede Escuintla](#configuracion-escuintla)
         * [SW0](#sw0)
+    * [Configuración del Core](#configuracion-core)
+        * [CENTRAL](#central)
 
 ## 🎁 Otros
 
@@ -554,4 +556,54 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
     ```console
     spanning-tree mode rapid-pvst
     exit
+    ```
+
+### 🔩 Configuración del Core<div id="configuracion-core"></div>
+
+#### Para el CENTRAL <div id="central"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname CENTRAL
+    do w
+    ```
+
+* Configuración de la IP y mascara en cada puerto correspondiente
+
+    > Los rangos entre IPs son arbitrarios
+
+    ```console
+    interface f0/0
+    ip add 10.0.0.1 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    interface f1/0
+    ip add 10.0.0.17 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    interface f2/0
+    ip add 10.0.0.33 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    interface f3/0
+    ip add 10.0.0.49 255.255.255.240
+    no shutdown
+    exit
+    do w
     ```
