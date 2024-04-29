@@ -28,6 +28,15 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
         * [ESCUINTLA](#router-escuintla)
         * [JUTIAPA](#router-jutiapa)
         * [PETEN](#router-peten)
+    * [Configuración de VPCs](#configuracion-vpcs)
+        * [VPC0](#vpc0)
+        * [VPC1](#vpc1)
+        * [VPC2](#vpc2)
+        * [VPC3](#vpc3)
+        * [VPC4](#vpc4)
+        * [VPC5](#vpc5)
+        * [VPC6](#vpc6)
+        * [VPC7](#vpc7)
 
 ## 🎁 Otros
 
@@ -271,7 +280,6 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int range f0/4-6
-    switchport trunk encapsulation dot1q
     switchport mode trunk
     exit
     do w
@@ -341,7 +349,6 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int range f0/4-6
-    switchport trunk encapsulation dot1q
     switchport mode trunk
     exit
     do w
@@ -411,7 +418,6 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int range f0/1-4
-    switchport trunk encapsulation dot1q
     switchport mode trunk
     exit
     do w
@@ -865,3 +871,36 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
     exit
     do w
     ```
+
+### 💻 Configuración de VPCs <div id="configuracion-vpcs"></div>
+
+#### Para el VPC0 <div id="vpc0"></div>
+
+
+
+#### Para el VPC1 <div id="vpc1"></div>
+
+
+
+#### Para el VPC2 <div id="vpc2"></div>
+
+
+
+#### Para el VPC3 <div id="vpc3"></div>
+
+
+
+#### Para el VPC4 <div id="vpc4"></div>
+
+
+
+#### Para el VPC5 <div id="vpc5"></div>
+
+
+
+#### Para el VPC6 <div id="vpc6"></div>
+
+
+
+#### Para el VPC7 <div id="vpc7"></div>
+
