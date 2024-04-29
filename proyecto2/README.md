@@ -506,10 +506,11 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 * Configuración HSRP
 
     ```console
-    int fa1/0
+    int f1/0
     standby 10 ip 192.167.29.1
     standby 10 priority 150
     standby 10 preempt
+    no shutdown
     do w
     exit
     ```
@@ -538,8 +539,9 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 * Configuración HSRP
 
     ```console
-    int fa1/0
+    int f1/0
     standby 10 ip 192.167.29.1
+    no shutdown
     do w
     exit
     ```
