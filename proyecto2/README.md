@@ -14,6 +14,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     * [Topologia](#topologia)
     * [Calculo del VLSM](#calculo-vlsm)
     * [VLSM Obtenidos](#vlsm-obtenidos)
+    * [FLSM Obtenidos](#flsm-obtenidos)
     * [Configuración de la Sede Jutiapa](#configuracion-jutiapa)
         * [SW2](#sw2)
         * [SW3](#sw3)
@@ -25,6 +26,7 @@ _Este es un proyecto universitario del curso de Redes de Computadoras 1, en dond
     * [Configuración del Core](#configuracion-core)
         * [CENTRAL](#router-central)
         * [JUTIAPA](#router-jutiapa)
+        * [ESCUINTLA](#router-escuintla)
 
 ## 🎁 Otros
 
@@ -200,6 +202,55 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 | Ventas      | 3Y      | 30      | 255.255.255.224 | 0.0.0.31 | 192.158.29.0  | 192.158.29.1  | 192.158.29.30 | 192.158.29.31 |
 | Informatica | 4Y      | 15      | 255.255.255.224 | 0.0.0.31 | 192.158.29.32 | 192.158.29.33 | 192.158.29.62 | 192.158.29.63 |
 | RRHH        | 1Y      | 10      | 255.255.255.240 | 0.0.0.15 | 192.158.29.64 | 192.158.29.65 | 192.158.29.78 | 192.158.29.79 |
+
+### 📄 FLSM Obtenidos <div id="flsm-obtenidos"></div>
+
+Para el calculo del FLSM se han considerado 14 host por cada router.
+
+#### Para el Router Central
+
+|Interfaz|IP Red|Mascara|
+|:----|:----|:----|
+|f0/0|10.0.0.1|255.255.255.240|
+|f1/0|10.0.0.17|255.255.255.240|
+|f6/0|10.0.0.33|255.255.255.240|
+|f7/0|10.0.0.49|255.255.255.240|
+
+#### Para el Router Escuintla
+
+|Interfaz|IP Red|Mascara|
+|:----|:----|:----|
+|f0/0|10.0.0.2|255.255.255.240|
+|f1/0|10.0.0.65|255.255.255.240|
+|f6/0|10.0.0.81|255.255.255.240|
+|f7/0|10.0.0.97|255.255.255.240|
+
+#### Para el Router Jutiapa
+
+|Interfaz|IP Red|Mascara|
+|:----|:----|:----|
+|f0/0|10.0.0.113|255.255.255.240|
+|f1/0|10.0.0.66|255.255.255.240|
+|f6/0|10.0.0.129|255.255.255.240|
+|f7/0|10.0.0.34|255.255.255.240|
+
+#### Para el Router Peten
+
+|Interfaz|IP Red|Mascara|
+|:----|:----|:----|
+|f0/0|10.0.0.114|255.255.255.240|
+|f1/0|10.0.0.145|255.255.255.240|
+|f6/0|10.0.0.82|255.255.255.240|
+|f7/0|10.0.0.50|255.255.255.240|
+
+#### Para el Router Quiche
+
+|Interfaz|IP Red|Mascara|
+|:----|:----|:----|
+|f0/0|10.0.0.146|255.255.255.240|
+|f1/0|10.0.0.50|255.255.255.240|
+|f6/0|10.0.0.130|255.255.255.240|
+|f7/0|10.0.0.198|255.255.255.240|
 
 ### 🔩 Configuración de la Sede Jutiapa<div id="configuracion-jutiapa"></div>
 
@@ -403,23 +454,23 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 * Configuración de las VLANs como Switch Virtual Interface (SVI)
 
     ```console
-    interface vlan 35
+    int vlan 35
     ip address 192.168.29.1 255.255.255.224
     no shutdown
     exit
 
-    interface vlan 45
+    int vlan 45
     ip address 192.168.29.33 255.255.255.240
     no shutdown
     exit
 
-    interface vlan 15
+    int vlan 15
     ip address 192.168.29.49 255.255.255.240
     no shutdown
     exit
 
 
-    interface vlan 25
+    int vlan 25
     ip address 192.168.29.65 255.255.255.248
     no shutdown
     exit
@@ -458,7 +509,7 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 * Configuración de la IP y mascara en cada puerto correspondiente
 
     ```console
-    interface f0/0
+    int f0/0
     ip add 11.0.0.1 255.255.255.0
     no shutdown
     do w
@@ -488,7 +539,7 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 * Configuración de la IP y mascara en cada puerto correspondiente
 
     ```console
-    interface f0/0
+    int f0/0
     ip add 12.0.0.1 255.255.255.0
     no shutdown
     do w
@@ -561,7 +612,7 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 
 ### 🔩 Configuración del Core<div id="configuracion-core"></div>
 
-#### Para el Router CENTRAL <div id="router-central"></div>
+<!-- #### Para el Router CENTRAL <div id="router-central"></div>
 
 * Configuración inicial
 
@@ -578,7 +629,7 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
     > Los rangos entre IPs son arbitrarios
 
     ```console
-    interface f0/0
+    int f0/0
     ip add 10.0.0.1 255.255.255.240
     no shutdown
     exit
@@ -586,7 +637,7 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
     ```
 
     ```console
-    interface f6/0
+    int f6/0
     ip add 10.0.0.17 255.255.255.240
     no shutdown
     exit
@@ -607,10 +658,24 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 
 * Configuración de la IP y mascara en cada puerto correspondiente
 
-    > Los rangos entre IPs son arbitrarios
+    ```console
+    int f1/0
+    ip add 10.0.0.18 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
 
     ```console
-    interface f8/0
+    int f7/0
+    ip add 10.0.0.18 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f8/0
     ip add 11.0.0.2 255.255.255.0
     no shutdown
     exit
@@ -618,19 +683,49 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
     ```
 
     ```console
-    interface f9/0
+    int f9/0
     ip add 12.0.0.2 255.255.255.0
+    no shutdown
+    exit
+    do w
+    ```   
+
+#### Para el Router ESCUINTLA <div id="router-escuintla"></div>
+
+* Configuración inicial
+
+    ```console
+    enable
+    conf t
+    no ip domain-lookup
+    hostname JUTIAPA
+    do w
+    ```
+
+* Configuración de la IP y mascara en cada puerto correspondiente
+
+    > Los rangos entre IPs son arbitrarios
+
+    ```console
+    int f8/0
     no shutdown
     exit
     do w
     ```
 
     ```console
-    interface f7/0
-    ip add 10.0.0.18 255.255.255.240
+    int f0/0
+    ip add 10.0.0.2 255.255.255.240
     no shutdown
     exit
     do w
     ```
 
-#### Para el Router JUTIAPA <div id="router-jutiapa"></div>
+    HACIA JUTIAPA
+    ```console
+    int f1/0
+    ip add 10.0.0.97 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ``` -->
