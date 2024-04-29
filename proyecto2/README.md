@@ -510,7 +510,7 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int f0/0
-    ip add 11.0.0.1 255.255.255.0
+    ip address 11.0.0.1 255.255.255.0
     no shutdown
     do w
     ```
@@ -540,7 +540,7 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int f0/0
-    ip add 12.0.0.1 255.255.255.0
+    ip address 12.0.0.1 255.255.255.0
     no shutdown
     do w
     ```
@@ -612,7 +612,7 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
 ### 🔩 Configuración del Core<div id="configuracion-core"></div>
 
-<!-- #### Para el Router CENTRAL <div id="router-central"></div>
+#### Para el Router CENTRAL <div id="router-central"></div>
 
 * Configuración inicial
 
@@ -626,11 +626,9 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
 * Configuración de la IP y mascara en cada puerto correspondiente
 
-    > Los rangos entre IPs son arbitrarios
-
     ```console
     int f0/0
-    ip add 10.0.0.1 255.255.255.240
+    ip address 10.0.0.1 255.255.255.240
     no shutdown
     exit
     do w
@@ -638,13 +636,29 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int f6/0
-    ip add 10.0.0.17 255.255.255.240
+    ip address 10.0.0.17 255.255.255.240
     no shutdown
     exit
     do w
     ```
 
-#### Para el Router JUTIAPA <div id="router-jutiapa"></div>
+    ```console
+    int f6/0
+    ip address 10.0.0.33 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+    ```console
+    int f6/0
+    ip address 10.0.0.49 255.255.255.240
+    no shutdown
+    exit
+    do w
+    ```
+
+<!-- #### Para el Router JUTIAPA <div id="router-jutiapa"></div>
 
 * Configuración inicial
 
@@ -660,7 +674,7 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int f1/0
-    ip add 10.0.0.18 255.255.255.240
+    ip address 10.0.0.18 255.255.255.240
     no shutdown
     exit
     do w
@@ -668,7 +682,7 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int f7/0
-    ip add 10.0.0.18 255.255.255.240
+    ip address 10.0.0.18 255.255.255.240
     no shutdown
     exit
     do w
@@ -676,7 +690,7 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int f8/0
-    ip add 11.0.0.2 255.255.255.0
+    ip address 11.0.0.2 255.255.255.0
     no shutdown
     exit
     do w
@@ -684,11 +698,11 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int f9/0
-    ip add 12.0.0.2 255.255.255.0
+    ip address 12.0.0.2 255.255.255.0
     no shutdown
     exit
     do w
-    ```   
+    ```
 
 #### Para el Router ESCUINTLA <div id="router-escuintla"></div>
 
@@ -715,7 +729,7 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
     ```console
     int f0/0
-    ip add 10.0.0.2 255.255.255.240
+    ip address 10.0.0.2 255.255.255.240
     no shutdown
     exit
     do w
@@ -724,7 +738,7 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
     HACIA JUTIAPA
     ```console
     int f1/0
-    ip add 10.0.0.97 255.255.255.240
+    ip address 10.0.0.97 255.255.255.240
     no shutdown
     exit
     do w
