@@ -161,7 +161,7 @@ La tabla obtenida con respecto a las asignaciones son las siguientes:
 |VLAN|ID VLAN|Equipos|Mascara|Wildcard|ID Red|Primera IP|Ultima IP|IP Broadcast|
 |:----|:----|:----|:----|:----|:----|:----|:----|:----|
 |Ventas|32|25|255.255.255.224|0.0.0.31|192.168.29.0|192.168.29.1|192.168.29.30|192.168.29.31|
-|Informatica|42|12|255.255.255.240|0.0.0.15|192.168.29.32|192.168.0.33|192.168.29.46|192.168.29.47|
+|Informatica|42|12|255.255.255.240|0.0.0.15|192.168.29.32|192.168.29.33|192.168.29.46|192.168.29.47|
 |RRHH|12|10|255.255.255.240|0.0.0.15|192.168.29.48|192.168.29.49|192.168.29.62|192.168.29.63|
 |Contabilidad|22|4|255.255.255.248|0.0.0.7|192.168.29.64|192.168.29.65|192.168.29.70|192.168.29.71|
 
@@ -877,33 +877,58 @@ Para el calculo del FLSM se han considerado 14 host por cada router.
 
 ### 💻 Configuración de VPCs <div id="configuracion-vpcs"></div>
 
-#### Para el VPC0 <div id="vpc0"></div>
+#### Para el VPC0 (VLAN 12)<div id="vpc0"></div>
 
+* **IPv4 Address**: 192.148.29.34
+* **Subnet Mask**: 255.255.255.248
+* **Default Gateway**: 192.148.29.33
+* **DNS Server**: 0.0.0.0
 
+#### Para el VPC1 (VLAN 32) <div id="vpc1"></div>
 
-#### Para el VPC1 <div id="vpc1"></div>
+* **IPv4 Address**: 192.148.29.2
+* **Subnet Mask**: 255.255.255.224
+* **Default Gateway**: 192.148.29.1
+* **DNS Server**: 0.0.0.0
 
+#### Para el VPC2 (VLAN 12) <div id="vpc2"></div>
 
+* **IPv4 Address**: 192.168.29.50
+* **Subnet Mask**: 255.255.255.240
+* **Default Gateway**: 192.168.29.49
+* **DNS Server**: 0.0.0.0
 
-#### Para el VPC2 <div id="vpc2"></div>
+#### Para el VPC3 (VLAN 22) <div id="vpc3"></div>
 
+* **IPv4 Address**: 192.168.29.66
+* **Subnet Mask**: 255.255.255.248
+* **Default Gateway**: 192.168.29.65
+* **DNS Server**: 0.0.0.0
 
+#### Para el VPC4 (VLAN 32) <div id="vpc4"></div>
 
-#### Para el VPC3 <div id="vpc3"></div>
+* **IPv4 Address**: 192.168.29.2
+* **Subnet Mask**: 255.255.255.224
+* **Default Gateway**: 192.168.29.1
+* **DNS Server**: 0.0.0.0
 
+#### Para el VPC5 (VLAN 42) <div id="vpc5"></div>
 
+* **IPv4 Address**: 192.168.29.34
+* **Subnet Mask**: 255.255.255.240
+* **Default Gateway**: 192.168.29.33
+* **DNS Server**: 0.0.0.0
 
-#### Para el VPC4 <div id="vpc4"></div>
+#### Para el VPC6 (VLAN 12) <div id="vpc6"></div>
 
+* **IPv4 Address**: 192.168.29.51
+* **Subnet Mask**: 255.255.255.240
+* **Default Gateway**: 192.168.29.49
+* **DNS Server**: 0.0.0.0
 
+#### Para el VPC7 (VLAN 22) <div id="vpc7"></div>
 
-#### Para el VPC5 <div id="vpc5"></div>
-
-
-
-#### Para el VPC6 <div id="vpc6"></div>
-
-
-
-#### Para el VPC7 <div id="vpc7"></div>
-
+* **IPv4 Address**: 192.168.29.67
+* **Subnet Mask**: 255.255.255.248
+* **Default Gateway**: 192.168.29.65
+* **DNS Server**: 0.0.0.0
